@@ -294,6 +294,23 @@
             position: relative;
         }
 
+        /* --- STYLING KHUSUS FOTO PROFIL ASLI --- */
+        .profile-photo-real {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Memotong dan menyesuaikan foto secara otomatis agar pas di bingkai */
+            object-position: center top; /* Memfokuskan potongan kamera pada area wajah/atas */
+            border-radius: 24px; /* Menyelaraskan lengkungan sudut foto dengan bingkai */
+            display: block;
+            transition: var(--transition);
+        }
+
+        /* Efek visual tambahan saat foto didekati kursor */
+        .about-visual-block:hover .profile-photo-real {
+            transform: scale(1.02); /* Foto sedikit membesar dengan halus */
+            filter: brightness(1.03); /* Foto menjadi sedikit lebih cerah saat di-hover */
+        }
+
         /* Bingkai Kotak Geometris Melayang */
         .geometric-card-bg {
             width: 85%;
@@ -1660,13 +1677,15 @@
     <div class="container">
         <div class="about-flex-container">
             
+            <!-- SISI KIRI: BINGKAI FOTO ASLI & LENCANA PENGALAMAN -->
             <div class="about-visual-block">
                 <div class="geometric-card-bg">
-                    <div class="profile-frame-placeholder">
-                        <i class="fas fa-user-tie"></i>
-                        <span>DATA & ART</span>
-                    </div>
                     
+                    <!-- FOTO UTAMA ANDA -->
+                    <!-- Ganti "foto-muhyiddin.jpg" dengan nama file foto Anda yang asli -->
+                    <img src="muhyidd15.jpeg" alt="Muhyiddin" class="profile-photo-real">
+                    
+                    <!-- Lencana Terapung Pengalaman tetap dipertahankan di bawah foto -->
                     <div class="experience-badge-modern">
                         <h3>5+</h3>
                         <p>Tahun<br>Berkarya</p>
