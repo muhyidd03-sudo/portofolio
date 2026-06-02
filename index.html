@@ -960,37 +960,187 @@ textarea.form-input {
     }
 }
 
-        /* --- 11. FOOTER --- */
-        .footer {
-            background-color: var(--dark);
-            color: #9ca3af;
-            padding: 50px 0;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        /* --- DESAIN PREMIUM MODERN FOOTER --- */
+.footer-modern {
+    background-color: #0f172a; /* Warna hitam safir/navy pekat yang sangat elegan */
+    color: #94a3b8;
+    padding: 70px 0 0 0; /* Ruang atas diperlonggar */
+    border-top: 3px solid var(--primary); /* Aksen garis hijau tebal di paling atas */
+}
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr; /* Pembagian rasio lebar kolom */
+    gap: 50px;
+    padding-bottom: 50px;
+}
 
-        .footer-links {
-            display: flex;
-            gap: 20px;
-        }
+/* Kolom 1: Brand */
+.footer-brand-column .footer-logo {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
 
-        .footer-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: var(--transition);
-        }
+.footer-brand-column .footer-logo span {
+    color: var(--primary); /* Warna hijau excel pada simbol & */
+}
 
-        .footer-links a:hover {
-            color: white;
-        }
+.footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+/* Pengaturan Judul Kolom 2 & 3 */
+.footer-modern h4 {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Garis bawah kecil estetik di setiap judul kolom footer */
+.footer-modern h4::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--secondary); /* Warna aksen emas kaligrafi */
+}
+
+/* Kolom 2: Menu Navigasi */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-menu a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.footer-menu a i {
+    font-size: 0.7rem;
+    margin-right: 8px;
+    transition: var(--transition);
+}
+
+/* Hover menu bergeser halus dan berubah warna hijau */
+.footer-menu a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.footer-menu a:hover i {
+    color: var(--secondary);
+}
+
+/* Kolom 3: CTA WhatsApp Berkepak Geter (Pulse Effect) */
+.footer-cta-column p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.footer-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #16a34a; /* Hijau WA */
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+    transition: var(--transition);
+}
+
+.footer-wa-btn:hover {
+    background-color: #15803d;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+}
+
+/* Animasi lingkaran gelombang menyebar di sekitar tombol WA */
+.pulse-ring {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid #16a34a;
+    border-radius: 30px;
+    animation: footerPulse 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes footerPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.15); opacity: 0; }
+}
+
+/* --- BAGIAN KAKIAN PALING BAWAH (COPYRIGHT) --- */
+.footer-bottom {
+    background-color: #0b0f19; /* Lebih pekat dari background atasnya */
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.footer-credit i {
+    animation: heartBeat 1.2s infinite;
+    display: inline-block;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* --- RESPONSIVITAS FOOTER UNTUK LAYANAN HP --- */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Berubah menjadi tumpuk ke bawah di layar kecil */
+        gap: 35px;
+        text-align: center;
+    }
+    
+    .footer-modern h4::after {
+        left: 50%;
+        transform: translateX(-50%); /* Garis bawah pindah ke tengah */
+    }
+    
+    .footer-menu a {
+        justify-content: center;
+    }
+    
+    .footer-bottom-flex {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
 
         /* --- ANIMASI KEYFRAMES --- */
         @keyframes fadeInUp {
@@ -1336,96 +1486,130 @@ textarea.form-input {
         <div class="container">
             <h2 class="section-title">Hubungi Kami</h2>
             <div class="contact-grid">
+                
                 <div class="contact-info">
-    <h3>Diskusikan Kebutuhan Anda</h3>
+                    <h3>Diskusikan Kebutuhan Anda</h3>
+        
+                    <div class="contact-method-container">
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="method-text">
+                                <span>Lokasi</span>
+                                <p>Des. Mandung, Kec. Kokop, Kab. Bangkalan</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="method-text">
+                                <span>Telepon / WhatsApp</span>
+                                <p>+62 822-3103-2950</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="method-text">
+                                <span>Email Resmi</span>
+                                <p>muhyidd03@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-clock"></i></div>
+                            <div class="method-text">
+                                <span>Jam Kerja</span>
+                                <p>08.00 - 16.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/username-anda" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/username-anda" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/username-anda" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>    
+                
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan Anda berhasil terkirim! Kami akan menghubungi Anda segera melalui WhatsApp/Email.');">
     
-    <div class="contact-method-container">
-        <div class="contact-method">
-            <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="method-text">
-                <span>Lokasi</span>
-                <p>Des. Mandung, Kec. Kokop, Kab. Bangkalan</p>
+                    <!-- Input 1: Nama -->
+                    <div class="form-group">
+                        <input type="text" id="contact-name" class="form-input" placeholder=" " required>
+                        <label for="contact-name" class="form-label">Nama Lengkap / Instansi</label>
+                        <div class="input-focus-line"></div>
+                    </div>
+
+                    <!-- Input 2: Email -->
+                    <div class="form-group">
+                        <input type="email" id="contact-email" class="form-input" placeholder=" " required>
+                        <label for="contact-email" class="form-label">Alamat Email Aktif</label>
+                        <div class="input-focus-line"></div>
+                    </div>
+
+                    <!-- Input 3: Pesan / Detail Proyek -->
+                    <div class="form-group">
+                        <textarea id="contact-message" class="form-input" rows="5" placeholder=" " required></textarea>
+                        <label for="contact-message" class="form-label">Tuliskan detail proyek (Contoh: Butuh dashboard Excel / Desain hiasan dinding kaligrafi kustom)</label>
+                        <div class="input-focus-line"></div>
+                    </div>
+
+                    <!-- Tombol Kirim Interaktif -->
+                    <button type="submit" class="btn btn-primary btn-submit-modern">
+                        <span>Kirim Penawaran <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></span>
+                    </button>
+                </form>
+
             </div>
         </div>
+    </section>
 
-        <div class="contact-method">
-            <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
-            <div class="method-text">
-                <span>Telepon / WhatsApp</span>
-                <p>+62 822-3103-2950</p>
-            </div>
+<!-- 11. PREMIUM GLOW FOOTER -->
+<footer class="footer-modern">
+    <div class="container footer-grid">
+        
+        <!-- Kolom 1: Profil Singkat -->
+        <div class="footer-brand-column">
+            <h3 class="footer-logo">DATA<span>&</span>ART</h3>
+            <p class="footer-desc">Kombinasi presisi logika otomasi data Excel VBA dan keindahan estetika tinggi Seni Kaligrafi Digital.</p>
         </div>
 
-        <div class="contact-method">
-            <div class="method-icon"><i class="fas fa-envelope"></i></div>
-            <div class="method-text">
-                <span>Email Resmi</span>
-                <p>muhyidd03@gmail.com</p>
-            </div>
+        <!-- Kolom 2: Navigasi Cepat Internal -->
+        <div class="footer-nav-column">
+            <h4>Navigasi</h4>
+            <ul class="footer-menu">
+                <li><a href="#services"><i class="fas fa-chevron-right"></i> Layanan Utama</a></li>
+                <li><a href="#portfolio"><i class="fas fa-chevron-right"></i> Galeri Karya</a></li>
+                <li><a href="#faq"><i class="fas fa-chevron-right"></i> Tanya Jawab (FAQ)</a></li>
+            </ul>
         </div>
 
-        <div class="contact-method">
-            <div class="method-icon"><i class="fas fa-clock"></i></div>
-            <div class="method-text">
-                <span>Jam Kerja</span>
-                <p>08.00 - 16.00 WIB</p>
-            </div>
+        <!-- Kolom 3: Tombol Aksi Utama (CTA) -->
+        <div class="footer-cta-column">
+            <h4>Mulai Kolaborasi</h4>
+            <p>Punya proyek data atau butuh desain seni khat?</p>
+            <!-- Catatan: Ganti 6281234567890 dengan nomor WhatsApp asli Anda -->
+            <a href="https://wa.me/6281234567890?text=Halo%20Admin%20DATA%26ART,%20saya%20tertarik%20untuk%20konsultasi%20mengenai%20layanan%20Excel%20/%20Kaligrafi." target="_blank" class="footer-wa-btn">
+                <span class="pulse-ring"></span>
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp
+            </a>
         </div>
     </div>
-    
-    <!-- Bagian social-links tetap di bawahnya -->
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/username-anda" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://www.instagram.com/username-anda" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://github.com/username-anda" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
-</div>
-<form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan Anda berhasil terkirim! Kami akan menghubungi Anda segera melalui WhatsApp/Email.');">
-    
-    <!-- Input 1: Nama -->
-    <div class="form-group">
-        <input type="text" id="contact-name" class="form-input" placeholder=" " required>
-        <label for="contact-name" class="form-label">Nama Lengkap / Instansi</label>
-        <div class="input-focus-line"></div>
-    </div>
 
-    <!-- Input 2: Email -->
-    <div class="form-group">
-        <input type="email" id="contact-email" class="form-input" placeholder=" " required>
-        <label for="contact-email" class="form-label">Alamat Email Aktif</label>
-        <div class="input-focus-line"></div>
-    </div>
-
-    <!-- Input 3: Pesan / Detail Proyek -->
-    <div class="form-group">
-        <textarea id="contact-message" class="form-input" rows="5" placeholder=" " required></textarea>
-        <label for="contact-message" class="form-label">Tuliskan detail proyek (Contoh: Butuh dashboard Excel / Desain hiasan dinding kaligrafi kustom)</label>
-        <div class="input-focus-line"></div>
-    </div>
-
-    <!-- Tombol Kirim Interaktif -->
-    <button type="submit" class="btn btn-primary btn-submit-modern">
-        <span>Kirim Penawaran <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></span>
-    </button>
-</form>
-
-    <!-- 11. FOOTER -->
-    <footer class="footer">
-        <div class="container footer-content">
+    <!-- Garis Batas Bawah & Hak Cipta -->
+    <div class="footer-bottom">
+        <div class="container footer-bottom-flex">
             <p>&copy; 2026 DATA&ART. Hak Cipta Dilindungi Undang-Undang.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Disclaimer</a>
-            </div>
+            <p class="footer-credit">Handcrafted with <i class="fas fa-heart" style="color: #ef4444;"></i> in Bangkalan</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script>
         // Script Tambahan khusus untuk Interaksi FAQ Acordion
