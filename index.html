@@ -2276,9 +2276,47 @@
     25% { transform: translateX(-6px); }
     75% { transform: translateX(6px); }
 }
+
+/* --- STYLE SMART PRELOADER --- */
+#loader-wrapper {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--bg-primary); /* Mengikuti tema gelap/terang */
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-out;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(16, 185, 129, 0.1);
+    border-top: 5px solid #10b981; /* Warna hijau khas Excel/Kaligrafi Anda */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Kelas untuk menghilangkan loader setelah selesai */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
         </style>
     </head>
 <body>
+
+    <!-- SMART PRELOADER -->
+<div id="loader-wrapper">
+    <div class="loader-spinner"></div>
+</div>
 
     <!-- 1. HEADER & NAVIGASI -->
     <header class="navbar">
@@ -2879,6 +2917,18 @@
         </div>
     </div>
 </footer>
+
+<script>
+    // FUNGSI PRELOADER
+window.addEventListener('load', function() {
+    const loaderWrapper = document.getElementById('loader-wrapper');
+    
+    // Memberikan sedikit delay agar animasi terasa lebih premium sebelum hilang
+    setTimeout(() => {
+        loaderWrapper.classList.add('loader-hidden');
+    }, 500); 
+});
+</script>
 
     <script>
         // Script Tambahan khusus untuk Interaksi FAQ Acordion
