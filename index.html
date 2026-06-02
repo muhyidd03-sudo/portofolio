@@ -3,593 +3,955 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Muhyiddin</title>
+    <title>Portofolio Profesional | Excel Automation & Seni Kaligrafi</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
 
+    <!-- ========================================== -->
+    <!--          BAGIAN CSS INTERNAL MODERN        -->
+    <!-- ========================================== -->
     <style>
-        /* Reset & Variabel */
+        /* --- RESET & ROOT VARIABLES --- */
+        :root {
+            --primary: #16a34a; /* Hijau Khas Excel & Seni Islami Klasik */
+            --primary-hover: #15803d;
+            --secondary: #b45309; /* Warna Emas/Amber Gelap untuk Aksen Kaligrafi */
+            --secondary-hover: #92400e;
+            --dark: #1f2937;
+            --text-main: #333333;
+            --text-muted: #6b7280;
+            --bg-light: #f4f7f4;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             scroll-behavior: smooth;
         }
 
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0ea5e9;
-        }
-
         body {
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
             color: var(--text-main);
+            line-height: 1.6;
+            background-color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* Header & Navigasi */
-        header {
+        .font-arabic {
+            font-family: 'Amiri', serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- INTEGRASI TOMBOL INTERAKTIF --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* --- 1. HEADER & NAVBAR RESPONSIF --- */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background-color: rgba(15, 23, 42, 0.9);
-            position: fixed;
-            width: 100%;
+            padding: 20px 5%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+            position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #334155;
+            transition: var(--transition);
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--accent);
-            opacity: 0;
-            animation: fadeInDown 0.8s ease forwards;
+            letter-spacing: 0.5px;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 5px;
         }
 
-        .nav-links li {
-            margin-left: 30px;
-            opacity: 0;
-            animation: fadeInDown 0.8s ease forwards;
-        }
-
-        .nav-links li:nth-child(1) { animation-delay: 0.1s; }
-        .nav-links li:nth-child(2) { animation-delay: 0.2s; }
-        .nav-links li:nth-child(3) { animation-delay: 0.3s; }
-
-        .nav-links a {
-            color: var(--text-main);
+        .nav-links li a {
+            display: block;
+            padding: 10px 16px;
+            color: #4b5563;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s, border-bottom 0.3s;
-            padding-bottom: 5px;
+            border-radius: 6px;
+            transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
+        .nav-links li a:hover {
+            color: var(--primary);
+            background-color: #f3f4f6;
         }
 
-        /* Burger Menu (Mobile) */
-        .burger {
+        .btn-cta-nav {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn-cta-nav:hover {
+            background-color: var(--secondary-hover);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
             display: none;
+            flex-direction: column;
+            gap: 6px;
             cursor: pointer;
-            z-index: 1001;
+            border: none;
+            background: transparent;
+            padding: 5px;
         }
 
-        .burger div {
-            width: 25px;
+        .nav-toggle span {
+            display: block;
+            width: 28px;
             height: 3px;
-            background-color: var(--text-main);
-            margin: 5px;
-            transition: all 0.3s ease;
+            background-color: var(--dark);
+            border-radius: 2px;
+            transition: var(--transition);
         }
 
-        /* Hero Section Baru dengan Foto */
+        /* --- 2. HERO SECTION DENGAN ANIMASI --- */
         .hero {
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 8%;
+            padding: 80px 5%;
+            min-height: 90vh;
+            background: radial-gradient(circle at 90% 10%, #f0fdf4 0%, #ffffff 60%);
             gap: 40px;
-            background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.15), transparent 40%);
         }
 
-        .hero-text { flex: 1; }
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+            animation: fadeInUp 0.8s ease-out;
+        }
 
-        /* Styling Foto Profil */
+        .headline {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .sub-headline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .hero-image {
             flex: 1;
             display: flex;
             justify-content: center;
-            opacity: 0;
-            animation: fadeInRight 1s ease forwards 1.2s;
+            animation: fadeIn 1.2s ease-out;
         }
 
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 0cqmin solid var(--accent);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-
-        .hero-text h5 {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            font-weight: 400;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.4s;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.6s;
-        }
-
-        .hero-text p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.8s;
-        }
-
-        /* Animasi Efek Mengetik */
-        .txt-type {
-            color: var(--accent);
+        .image-placeholder {
+            width: 100%;
+            max-width: 450px;
+            height: 400px;
+            background: linear-gradient(135deg, #a7f3d0 0%, #fde68a 100%);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #166534;
             font-weight: 600;
-            border-right: 2px solid var(--accent);
-            padding-right: 5px;
-            animation: blink 0.75s step-end infinite;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background-color: var(--accent);
-            color: #0f172a;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 1s;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
-        }
-
-        /* Struktur Utama Section & Efek Reveal */
-        section {
-            padding: 100px 8% 80px 8%;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
             position: relative;
-            display: inline-block;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
         }
 
-        h2::after {
+        .image-placeholder::before {
             content: '';
             position: absolute;
-            width: 50%;
-            height: 4px;
-            background-color: var(--accent);
-            bottom: -10px;
-            left: 0;
-            border-radius: 2px;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite linear;
         }
 
-        .about-content {
-            background-color: var(--card-bg);
+        /* --- 3. ABOUT US --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin: 24px 0 10px;
+            color: var(--dark);
+        }
+
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .stat-item {
+            background-color: #f0fdf4;
             padding: 30px;
-            border-radius: 12px;
-            line-height: 1.8;
-            color: var(--text-muted);
-            max-width: 800px;
-            border: 1px solid #334155;
+            border-radius: 16px;
+            text-align: center;
+            border-left: 6px solid var(--primary);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        /* Card Skills Terkustomisasi (Glow On Mousemove) */
-        .skills-container {
+        .stat-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* --- 4. SERVICES --- */
+        .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .skill-card {
-            position: relative;
-            background-color: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            overflow: hidden;
-            transition: transform 0.3s ease;
+        .card {
+            background-color: white;
+            padding: 45px 35px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(22, 163, 74, 0.1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* --- 5. TESTIMONI & LOGO BRAND --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .testi-card {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 16px;
+            border-top: 4px solid var(--secondary);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .testi-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testi-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #4b5563;
+        }
+
+        .testi-card h4 {
+            color: var(--dark);
+        }
+
+        .client-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .client-logos span {
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #9ca3af;
+            transition: var(--transition);
             cursor: pointer;
         }
 
-        /* Layer efek bersinar mengikuti kursor */
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 12px;
-            background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(56, 189, 248, 0.08), transparent 40%);
-            z-index: 1;
-            pointer-events: none;
+        .client-logos span:hover {
+            color: var(--primary);
         }
 
-        .skill-card:hover {
+        /* --- 6. PORTFOLIO TAMPILAN ELEGAN --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
             transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+            box-shadow: var(--shadow-lg);
         }
 
-        .skill-card-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .skill-card .icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover .icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .skill-card h3 {
-            margin-bottom: 12px;
-            font-size: 1.4rem;
-        }
-
-        .skill-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .status {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        .port-img-placeholder {
+            height: 260px;
+            background: linear-gradient(135deg, #65a30d 0%, #15803d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .portfolio-item:nth-child(even) .port-img-placeholder {
+            background: linear-gradient(135deg, #d97706 0%, #78350f 100%);
+        }
+
+        .portfolio-item:hover .port-img-placeholder {
+            filter: brightness(0.9);
+        }
+
+        .port-info {
+            padding: 25px;
+        }
+
+        .port-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        /* --- 7. FAQ --- */
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            background: #ffffff;
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        /* --- 8. BLOG EXTRA --- */
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-img {
+            height: 220px;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-weight: bold;
+        }
+
+        .blog-body {
+            padding: 30px;
+        }
+
+        .blog-body h3 {
+            color: var(--dark);
             margin-bottom: 10px;
         }
 
-        /* Footer */
-        footer {
-            background-color: #020617;
-            padding: 40px 8%;
+        .read-more {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            letter-spacing: 1px;
+            color: var(--primary-hover);
+        }
+
+        /* --- 9 & 10. CONTACT FORM FLUID --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .contact-method {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            padding: 10px 20px;
+            border-radius: 8px;
+            background-color: var(--bg-light);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1);
+        }
+
+        /* --- 11. FOOTER --- */
+        .footer {
+            background-color: var(--dark);
+            color: #9ca3af;
+            padding: 50px 0;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid #1e293b;
             flex-wrap: wrap;
             gap: 20px;
         }
 
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .footer-links {
+            display: flex;
+            gap: 20px;
         }
 
-        .social-links a {
-            color: var(--text-main);
-            font-size: 1.5rem;
-            margin-left: 20px;
-            transition: color 0.3s, transform 0.3s;
-            display: inline-block;
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: var(--transition);
         }
 
-        .social-links a:hover {
-            color: var(--accent);
-            transform: scale(1.25) rotate(8deg);
+        .footer-links a:hover {
+            color: white;
         }
 
-        /* KEYFRAMES ANIMASI CSS */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* --- ANIMASI KEYFRAMES --- */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: var(--accent); }
-        }
-
-        /* Responsive Breakpoint (Tablet/Mobile) */
-        @media screen and (max-width: 900px) {
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 130px;
-                height: auto;
-                gap: 20px;
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            .profile-img {
-                width: 220px;
-                height: 220px;
-                margin-bottom: 10px;
-            }
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                right: 0px;
-                height: 92vh;
-                top: 8vh;
-                background-color: var(--bg-color);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 70%;
-                transform: translateX(100%);
-                transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-                box-shadow: -10px 0px 20px rgba(0,0,0,0.3);
-                padding-top: 50px;
-            }
-
-            .nav-links li {
-                margin: 25px 0;
+            to {
                 opacity: 1;
-                animation: none;
+                transform: translateY(0);
             }
+        }
 
-            .burger {
-                display: block;
-            }
-            
-            footer {
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shine {
+            0% { top: -50%; left: -50%; }
+            100% { top: 100%; left: 100%; }
+        }
+
+        /* --- 12. RESPONSIVE DESIGN (MEDIA QUERIES) --- */
+        @media (max-width: 1024px) {
+            .headline { font-size: 2.8rem; }
+            .hero { min-height: auto; padding: 60px 5%; }
+            .about-grid, .contact-grid { gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 70px 0; }
+            .section-title { font-size: 2rem; margin-bottom: 40px; }
+            .nav-toggle { display: flex; }
+            .navbar { padding: 15px 5%; }
+
+            .nav-container {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
                 flex-direction: column;
+                padding: 30px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                border-top: 1px solid #f3f4f6;
+                display: none;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
                 text-align: center;
+                gap: 10px;
             }
+
+            .nav-links li a { padding: 12px; font-size: 1.1rem; }
+            .btn-cta-nav { width: 100%; margin-top: 10px; }
+
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 40px; }
+            .hero-content { max-width: 100%; }
+            .hero-cta { justify-content: center; }
+            .image-placeholder { height: 300px; width: 100%; }
+
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .contact-form { padding: 30px 20px; }
             
-            .social-links a {
-                margin: 0 10px;
-            }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
         }
 
-        .nav-active {
-            transform: translateX(0%);
+        @media (max-width: 480px) {
+            .headline { font-size: 2.2rem; }
+            .sub-headline { font-size: 1.1rem; }
+            .btn { width: 100%; }
+            .hero-cta { flex-direction: column; gap: 12px; width: 100%; }
         }
-
-        /* Animasi Burger Icon */
-        .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-        .toggle .line2 { opacity: 0; }
-        .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo"></div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#skills">Keahlian</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
+    <!-- 1. HEADER & NAVIGASI -->
+    <header class="navbar">
+        <div class="logo">DATA<span>&ART.</span></div>
+        <div class="nav-wrapper">
+            <button class="nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#blog">Artikel</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn btn-cta-nav">Mulai Proyek</a>
+        </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <h5>Halo, Nama Saya</h5>
-            <h1>Muhyiddin</h1>
-            <p>Saya fokus pada bidang <span class="txt-type" data-wait="2000" data-words='["Excel Advanced.", "Kaligrafi Arab.", "Web Development."]'></span></p>
-            <a href="#skills" class="btn">Lihat Keahlian</a>
-        </div>
-
-        <div class="hero-image">
-            <img src="muhyidd15.jpeg" alt="Foto Muhyiddin" class="profile-img">
-        </div>
-    </section>
-
-    <section id="about" class="about reveal">
-        <h2>Tentang Saya</h2>
-        <div class="about-content">
-            <p>Saya adalah seseorang yang senang menggabungkan logika dan estetika. Mulai dari mengolah data rumit menggunakan Excel, merangkai keindahan huruf lewat kaligrafi, hingga membangun pondasi digital yang interaktif di dunia web development.</p>
-        </div>
-    </section>
-
-    <section id="skills" class="skills reveal">
-        <h2>Keahlian & Fokus</h2>
-        <div class="skills-container">
-            
-            <div class="skill-card">
-                <div class="skill-card-content">
-                    <div class="icon"><i class="fa-solid fa-file-excel"></i></div>
-                    <h3>Excel Advanced</h3>
-                    <p>Pengolahan data kompleks, otomatisasi rumus, analisis data, hingga pembuatan dashboard interaktif.</p>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-card-content">
-                    <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
-                    <h3>Kaligrafi Arab</h3>
-                    <p>Seni menulis indah (Khat) yang melatih kesabaran, detail, dan sensitivitas terhadap estetika visual.</p>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-card-content">
-                    <div class="icon"><i class="fa-solid fa-code"></i></div>
-                    <h3>Web Development</h3>
-                    <p class="status">⚡ Sedang Dipelajari</p>
-                    <p>Fokus membangun fondasi HTML, CSS modern, dan JavaScript untuk menciptakan web responsif.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Muhyiddin. All Rights Reserved.</p>
-        <div class="social-links">
-            <a href="https://instagram.com/muhyidd15" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/6282231032950?text=Halo%20Muhyiddin,%20saya%20tertarik%20dengan%20portofolio%20Anda" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://tiktok.com/@muhyidd15" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-    </footer>
-
+    <!-- Script navigasi mobile -->
     <script>
-        // 1. Class Efek Mengetik (TypeWriter)
-        class TypeWriter {
-            constructor(txtElement, words, wait = 3000) {
-                this.txtElement = txtElement;
-                this.words = words;
-                this.txt = '';
-                this.wordIndex = 0;
-                this.wait = parseInt(wait, 10);
-                this.type();
-                this.isDeleting = false;
-            }
-            type() {
-                const current = this.wordIndex % this.words.length;
-                const fullTxt = this.words[current];
-                if(this.isDeleting) {
-                    this.txt = fullTxt.substring(0, this.txt.length - 1);
-                } else {
-                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            var menu = document.querySelector('.nav-container');
+            menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 768) {
+                    document.querySelector('.nav-container').style.display = 'none';
                 }
-                
-                // PERBAIKAN SINTAKS: Menggunakan backtick (``) untuk template literals
-                this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-                
-                let typeSpeed = 100;
-                if(this.isDeleting) { typeSpeed /= 2; }
-                if(!this.isDeleting && this.txt === fullTxt) {
-                    typeSpeed = this.wait;
-                    this.isDeleting = true;
-                } else if(this.isDeleting && this.txt === '') {
-                    this.isDeleting = false;
-                    this.wordIndex++;
-                    typeSpeed = 500;
-                }
-                setTimeout(() => this.type(), typeSpeed);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // 2. Inisialisasi Efek Mengetik Otomatis
-            const txtElement = document.querySelector('.txt-type');
-            if (txtElement) {
-                const words = JSON.parse(txtElement.getAttribute('data-words'));
-                const wait = txtElement.getAttribute('data-wait');
-                new TypeWriter(txtElement, words, wait);
-            }
-
-            // 3. Menu Navigasi Mobile (Burger Menu)
-            const burger = document.querySelector('.burger');
-            const nav = document.querySelector('.nav-links');
-            if (burger && nav) {
-                burger.addEventListener('click', () => {
-                    nav.classList.toggle('nav-active');
-                    burger.classList.toggle('toggle');
-                });
-            }
-
-            // 4. Scroll Reveal (Muncul halus saat di-scroll)
-            const sections = document.querySelectorAll('.reveal');
-            const observerOptions = {
-                threshold: 0.15
-            };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, observerOptions);
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // 5. Efek Sorotan Glow Mengikuti Gerakan Kursor Mouse
-            const cards = document.querySelectorAll('.skill-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    // PERBAIKAN SINTAKS: Menggunakan backtick (``) agar nilainya terbaca sempurna oleh CSS
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
-                });
             });
         });
     </script>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="headline">Otomasi Data Excel & Keindahan Kaligrafi Arab</h1>
+            <p class="sub-headline">Menyederhanakan bisnis Anda melalui sistem spreadsheet makro yang cerdas, sekaligus memperindah ruang Anda dengan karya seni kaligrafi digital & fisik berkualitas tinggi.</p>
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-primary">Lihat Hasil Karya</a>
+                <a href="#contact" class="btn btn-secondary">Konsultasi Gratis</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-placeholder">
+                <span style="font-size: 3rem; margin-bottom: 10px;">📊 + ✒️</span>
+                <span style="font-size: 1.4rem;" class="font-arabic">الخط العربي & Excel</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ABOUT US -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Presisi Logika & Estetika Seni</h3>
+                    <p>Kami percaya bahwa efisiensi kerja dan keindahan visual dapat berjalan beriringan. Di satu sisi, kami membantu perusahaan menghemat ratusan jam kerja lewat arsitektur formula Excel dan VBA Macro yang mutakhir. Di sisi lain, kami melestarikan warisan budaya luhur melalui pembuatan desain kaligrafi Arab kustom untuk kebutuhan interior, merchandise, maupun aset digital.</p>
+                    <h3>Nilai Perusahaan</h3>
+                    <p>Akurasi Data Tanpa Cela, Keaslian Kaidah Khat Kaligrafi, dan Respons Kilat untuk Kepuasan Klien.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item"><h4>100%</h4><p>Akurasi Rumus & Kaidah Khat</p></div>
+                    <div class="stat-item"><h4>120+</h4><p>Dasbor & Desain Terselesaikan</p></div>
+                    <div class="stat-item"><h4>24/7</h4><p>Dukungan Sistem & Revisi</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SERVICES -->
+    <section id="services" class="services section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Layanan Utama</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3>Excel VBA & Otomasi</h3>
+                    <p>Pembuatan macro kustom, pembersihan data otomatis, integrasi laporan interaktif, dan optimasi formula kompleks.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Desain Kaligrafi Digital</h3>
+                    <p>Pembuatan hiasan dinding, logo berkonsep khat Arab (Tsuluts, Naskhi, Diwani), untuk dekorasi maupun branding produk.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🖥️</div>
+                    <h3>Interactive Dashboard</h3>
+                    <p>Mengubah kumpulan baris data mentah yang rumit menjadi visualisasi grafik dinamis yang mudah dibaca direksi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONI & SOCIAL PROOF -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <h2 class="section-title">Testimoni Klien</h2>
+            <div class="testimonial-grid">
+                <div class="testi-card">
+                    <p class="testi-text">"Pekerjaan bulanan tim finance kami yang tadinya memakan waktu 3 hari, sekarang selesai dalam 5 menit berkat sistem Macro Excel yang dibuat!"</p>
+                    <h4>- Pak Hermawan</h4>
+                    <span class="client-role">Manajer Operasional Logistik</span>
+                </div>
+                <div class="testi-card">
+                    <p class="testi-text">"Desain kaligrafi kustom untuk masjid dan mushola kantor kami hasilnya sangat presisi, rapi, dan sesuai kaidah khat asli. Sangat puas!"</p>
+                    <h4>- Ibu Rahmawati</h4>
+                    <span class="client-role">Ketua Yayasan Seni Bina</span>
+                </div>
+            </div>
+            <div class="client-logos">
+                <span>PT DATA UTAMA</span><span>STUDIO ISLAMI</span><span>UMKM MAJU</span><span>CORP SPREADSHEET</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PORTFOLIO / PROYEK -->
+    <section id="portfolio" class="portfolio section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Portofolio Pilihan</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="port-img-placeholder">📊 Automated Inventory System Excel</div>
+                    <div class="port-info">
+                        <h4>Sistem Inventaris Otomatis</h4>
+                        <p>Studi Kasus: Menggunakan Excel VBA untuk otomatisasi stok barang gudang ritel dengan notifikasi otomatis.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="port-img-placeholder" class="font-arabic">✒️ Desain Kustom Khat Tsuluts</div>
+                    <div class="port-info">
+                        <h4>Koleksi Kaligrafi Masjid Agung</h4>
+                        <p>Karya seni vektor resolusi tinggi siap cetak berukuran besar tanpa pecah sedikit pun.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section id="faq" class="faq section-padding">
+        <div class="container">
+            <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Apakah sistem Excel Macro aman dari virus/corrupt?</h4>
+                    <p>Sangat aman. Kami membuat kode VBA dengan struktur yang bersih, efisien, dan memberikan panduan lengkap cara mengaktifkan macro secara aman di laptop Anda.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Bisa memesan kaligrafi Arab dalam format apa saja?</h4>
+                    <p>Kami menyediakan format vektor lengkap (AI, EPS, PDF, SVG) sehingga Anda bebas mencetaknya dalam ukuran pakaian, kanvas besar, hingga ukiran kayu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. BLOG / ARTIKEL -->
+    <section id="blog" class="blog section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Artikel & Tips</h2>
+            <div class="card-grid">
+                <article class="blog-card">
+                    <div class="blog-img">Excel Tips</div>
+                    <div class="blog-body">
+                        <h3>5 Rumus Advanced Excel yang Wajib Dikuasai</h3>
+                        <p>Pelajari trik mengombinasikan INDEX, MATCH, dan XLOOKUP untuk pencarian data super cepat...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-img">Art Tips</div>
+                    <div class="blog-body">
+                        <h3>Mengenal Karakteristik Khat Diwani dan Kegunaannya</h3>
+                        <p>Khat Diwani memiliki keindahan lekukan yang dinamis. Simak tips memakainya untuk desain logo modern...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 & 10. CONTACT & SOCIAL MEDIA -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Diskusikan Kebutuhan Anda</h3>
+                    <p class="contact-method">📍 Kec. Bangkalan, Madura, Jawa Timur</p>
+                    <p class="contact-method">📞 +62 812-3456-7890</p>
+                    <p class="contact-method">✉️ kontak@data-art-portfolio.com</p>
+                    <p class="contact-method">🕒 Jam Kerja: 08.00 - 16.00 WIB</p>
+                    
+                    <div class="social-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan Anda berhasil terkirim! Kami akan menghubungi Anda segera.');">
+                    <input type="text" placeholder="Nama Lengkap / Instansi" required>
+                    <input type="email" placeholder="Alamat Email" required>
+                    <textarea rows="5" placeholder="Tuliskan detail proyek Anda (Contoh: Butuh dashboard penjualan Excel / Desain hiasan dinding kaligrafi kustom)" required></textarea>
+                    <button type="submit" class="btn btn-primary">Kirim Penawaran</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 DATA&ART. Hak Cipta Dilindungi Undang-Undang.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
