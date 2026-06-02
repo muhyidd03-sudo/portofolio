@@ -323,37 +323,144 @@
         }
 
         /* --- 4. SERVICES --- */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+        /* --- DESAIN PREMIUM UNTUK SECTION SERVICES --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px; /* Jarak antar kartu sedikit diperlebar agar bernapas */
+}
 
-        .card {
-            background-color: white;
-            padding: 45px 35px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.02);
-        }
+.card {
+    background-color: #ffffff;
+    padding: 40px 35px 30px 35px;
+    border-radius: 20px; /* Sudut lebih melengkung modern */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Efek transisi ultra-smooth */
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(22, 163, 74, 0.1);
-        }
+/* Penataan Lencana di Atas Kartu */
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 25px;
-            display: inline-block;
-            transition: var(--transition);
-        }
+.badge-excel {
+    background-color: #e6f4ea;
+    color: #137333;
+}
 
-        .card:hover .card-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
+.badge-art {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+/* Wadah Desain Ikon Baru */
+.card-icon-modern {
+    width: 65px;
+    height: 65px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    transition: var(--transition);
+    background: #f3f4f6;
+    color: var(--dark);
+}
+
+/* Pembagian Warna Gradasi Spesifik Tiap Ikon */
+.service-card-excel .card-icon-modern {
+    background: linear-gradient(135deg, #e6f4ea 0%, #a7f3d0 100%);
+    color: #16a34a;
+}
+
+.service-card-calligraphy .card-icon-modern {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #b45309;
+}
+
+.service-card-dashboard .card-icon-modern {
+    background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%);
+    color: #2563eb;
+}
+
+/* Penataan Konten Teks */
+.card-body-art h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card-body-art p {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Teks Aksi di Bagian Bawah Kartu */
+.card-footer-art {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.card-footer-art i {
+    transition: var(--transition);
+}
+
+/* --- MICRO-INTERACTION (EFEK HOVER NYATA) --- */
+.card:hover {
+    transform: translateY(-12px); /* Kartu terangkat */
+    box-shadow: 0 20px 40px rgba(22, 163, 74, 0.08); /* Bayangan memancar lembut */
+    background-color: #ffffff;
+}
+
+/* Perubahan spesifik kartu kaligrafi saat di-hover (Bayangan emas) */
+.service-card-calligraphy:hover {
+    box-shadow: 0 20px 40px rgba(180, 83, 9, 0.08);
+    border-color: rgba(180, 83, 9, 0.2);
+}
+
+.service-card-excel:hover, .service-card-dashboard:hover {
+    border-color: rgba(22, 163, 74, 0.2);
+}
+
+/* Efek ikon membesar dan berputar sedikit saat kartu di-hover */
+.card:hover .card-icon-modern {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+/* Animasi panah meluncur ke kanan saat di-hover */
+.card:hover .card-footer-art {
+    color: var(--primary);
+}
+.service-card-calligraphy:hover .card-footer-art {
+    color: var(--secondary);
+}
+
+.card:hover .card-footer-art i {
+    transform: translateX(5px);
+}
 
         /* --- 5. TESTIMONI & LOGO BRAND --- */
         .testimonial-grid {
@@ -863,27 +970,58 @@
 
     <!-- 4. SERVICES -->
     <section id="services" class="services section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title">Layanan Utama</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">📈</div>
+    <div class="container">
+        <h2 class="section-title">Layanan Utama</h2>
+        <div class="card-grid">
+            
+            <!-- Kartu 1: Excel Automation -->
+            <div class="card service-card-excel">
+                <div class="card-badge badge-excel">Data & Logika</div>
+                <div class="card-header-art">
+                    <div class="card-icon-modern"><i class="fas fa-table"></i></div>
+                </div>
+                <div class="card-body-art">
                     <h3>Excel VBA & Otomasi</h3>
-                    <p>Pembuatan macro kustom, pembersihan data otomatis, integrasi laporan interaktif, dan optimasi formula kompleks.</p>
+                    <p>Pembuatan sistem Macro kustom, otomatisasi pembersihan data, eliminasi human-error, serta perancangan formula kompleks untuk memangkas waktu kerja bulanan Anda menjadi hitungan menit.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🎨</div>
-                    <h3>Desain Kaligrafi Digital</h3>
-                    <p>Pembuatan hiasan dinding, logo berkonsep khat Arab (Tsuluts, Naskhi, Diwani), untuk dekorasi maupun branding produk.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🖥️</div>
-                    <h3>Interactive Dashboard</h3>
-                    <p>Mengubah kumpulan baris data mentah yang rumit menjadi visualisasi grafik dinamis yang mudah dibaca direksi.</p>
+                <div class="card-footer-art">
+                    <span>Mulai Optimasi <i class="fas fa-arrow-right"></i></span>
                 </div>
             </div>
+
+            <!-- Kartu 2: Kaligrafi Arab -->
+            <div class="card service-card-calligraphy">
+                <div class="card-badge badge-art">Seni & Estetika</div>
+                <div class="card-header-art">
+                    <div class="card-icon-modern"><i class="fas fa-pen-nib"></i></div>
+                </div>
+                <div class="card-body-art">
+                    <h3>Desain Kaligrafi Digital</h3>
+                    <p>Pembuatan seni khat premium (Tsuluts, Naskhi, Diwani) dalam bentuk vektor resolusi tinggi tanpa pecah. Sempurna untuk kebutuhan ornamen arsitektur interior, logo produk, maupun mahar.</p>
+                </div>
+                <div class="card-footer-art">
+                    <span class="font-arabic" style="font-size: 1.1rem; color: var(--secondary);">الخط العربي <i class="fas fa-palette"></i></span>
+                </div>
+            </div>
+
+            <!-- Kartu 3: Interactive Dashboard -->
+            <div class="card service-card-dashboard">
+                <div class="card-badge badge-excel">Visualisasi</div>
+                <div class="card-header-art">
+                    <div class="card-icon-modern"><i class="fas fa-chart-pie"></i></div>
+                </div>
+                <div class="card-body-art">
+                    <h3>Interactive Dashboard</h3>
+                    <p>Transformasikan tumpukan baris data mentah yang membingungkan menjadi grafik dinamis interaktif yang indah, interaktif, dan siap saji untuk mempermudah pengambilan keputusan direksi.</p>
+                </div>
+                <div class="card-footer-art">
+                    <span>Lihat Sampel <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- 5. TESTIMONI & SOCIAL PROOF -->
     <section class="testimonials section-padding">
