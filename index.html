@@ -796,51 +796,137 @@
             color: var(--dark);
         }
 
-        /* --- 8. BLOG EXTRA --- */
+        /* --- DESAIN ARSITEKTUR CARDS UNTUK BLOG SECTION --- */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
         .blog-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+        /* Bagian Atas Kartu (Tag Kategori & Tanggal rilis) */
+        .blog-header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
         }
 
-        .blog-img {
-            height: 220px;
-            background-color: #e5e7eb;
+        /* Desain Kapsul Label Tag Kategori */
+        .blog-tag {
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-excel-color {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+
+        .tag-art-color {
+            background-color: #fef3c7;
+            color: #b45309;
+        }
+
+        .tag-dashboard-color {
+            background-color: #eff6ff;
+            color: #2563eb;
+        }
+
+        /* Penataan Icon Kalender dan Tanggal */
+        .blog-date {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #9ca3af;
-            font-weight: bold;
+            gap: 6px;
         }
 
-        .blog-body {
-            padding: 30px;
-        }
-
+        /* Komponen Isi Teks Artikel */
         .blog-body h3 {
+            font-size: 1.35rem;
             color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
+            line-height: 1.4;
+            font-weight: 700;
+            margin-bottom: 12px;
             transition: var(--transition);
         }
 
-        .read-more:hover {
-            letter-spacing: 1px;
-            color: var(--primary-hover);
+        .blog-body p {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 30px;
+        }
+
+        /* --- RE-DESAIN TOMBOL TOMBOL READ MORE MODERN --- */
+        .blog-footer {
+            border-top: 1px solid #f3f4f6;
+            padding-top: 20px;
+        }
+
+        .read-more-modern {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .read-more-modern i {
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        /* --- MICRO-INTERACTION (HOVER EFFECT) --- */
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            border-color: rgba(22, 163, 74, 0.12); /* Semburat hijau lembut di tepian kartu */
+        }
+
+        /* Judul berubah warna hijau saat kartu didekati kursor */
+        .blog-card:hover .blog-body h3 {
+            color: var(--primary);
+        }
+
+        /* Panah bergeser ke kanan dan warna berubah menjadi emas aksen */
+        .blog-card:hover .read-more-modern {
+            color: var(--secondary);
+        }
+
+        .blog-card:hover .read-more-modern i {
+            transform: translateX(6px);
+        }
+
+        /* Responsivitas di Smartphone */
+        @media (max-width: 480px) {
+            .blog-card {
+                padding: 28px 24px;
+            }
+            .blog-body h3 {
+                font-size: 1.2rem;
+            }
         }
 
         /* --- 9 & 10. CONTACT FORM FLUID --- */
@@ -1601,28 +1687,61 @@
 
     <!-- 8. BLOG / ARTIKEL -->
     <section id="blog" class="blog section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title">Artikel & Tips</h2>
-            <div class="card-grid">
-                <article class="blog-card">
-                    <div class="blog-img">Excel Tips</div>
-                    <div class="blog-body">
-                        <h3>5 Rumus Advanced Excel yang Wajib Dikuasai</h3>
-                        <p>Pelajari trik mengombinasikan INDEX, MATCH, dan XLOOKUP untuk pencarian data super cepat...</p>
-                        <a href="#" class="read-more">Baca Selengkapnya →</a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-img">Art Tips</div>
-                    <div class="blog-body">
-                        <h3>Mengenal Karakteristik Khat Diwani dan Kegunaannya</h3>
-                        <p>Khat Diwani memiliki keindahan lekukan yang dinamis. Simak tips memakainya untuk desain logo modern...</p>
-                        <a href="#" class="read-more">Baca Selengkapnya →</a>
-                    </div>
-                </article>
+    <div class="container">
+        <h2 class="section-title">Artikel & Studi Kasus</h2>
+        
+        <div class="blog-grid">
+            
+            <div class="blog-card">
+                <div class="blog-header-meta">
+                    <span class="blog-tag tag-excel-color">Otomasi Data</span>
+                    <span class="blog-date"><i class="far fa-calendar-alt"></i> 24 Mei 2026</span>
+                </div>
+                <div class="blog-body">
+                    <h3>Panduan Memulai Excel VBA Macro untuk Pemula</h3>
+                    <p>Pelajari langkah dasar menyusun kode Macro pertama Anda untuk mengotomatiskan rekapitulasi data harian secara instan, aman, dan bebas error.</p>
+                </div>
+                <div class="blog-footer">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Admin%20DATA%26ART,%20saya%20tertarik%20tanya-tanya%20mengenai%20layanan%20Otomasi%20Excel%20VBA." target="_blank" class="read-more-modern">
+                        Konsultasi Solusi Ini <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-header-meta">
+                    <span class="blog-tag tag-art-color">Seni Khat</span>
+                    <span class="blog-date"><i class="far fa-calendar-alt"></i> 18 Mei 2026</span>
+                </div>
+                <div class="blog-body">
+                    <h3>Mengenal Anatomi Keindahan Khat Tsuluts Digital</h3>
+                    <p>Mengulas rahasia presisi rumus penataan titik dan kelengkuran geometris pada struktur huruf Khat Tsuluts dalam pembuatan desain format vektor resolusi tinggi.</p>
+                </div>
+                <div class="blog-footer">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Admin%20DATA%26ART,%20saya%20tertarik%20tanya-tanya%20mengenai%20pembuatan%20Desain%20Kaligrafi." target="_blank" class="read-more-modern">
+                        Tanya Jasa Desain <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-header-meta">
+                    <span class="blog-tag tag-dashboard-color">Visualisasi</span>
+                    <span class="blog-date"><i class="far fa-calendar-alt"></i> 05 Mei 2026</span>
+                </div>
+                <div class="blog-body">
+                    <h3>Transformasi Data Mentah Menjadi Dashboard Interaktif</h3>
+                    <p>Bagaimana visualisasi grafik dan pivot table yang dinamis mampu mengubah tumpukan data teks membingungkan menjadi instrumen keputusan bisnis yang bernilai tinggi.</p>
+                </div>
+                <div class="blog-footer">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Admin%20DATA%26ART,%20saya%20tertarik%20tanya-tanya%20mengenai%20pembuatan%20Interactive%20Dashboard." target="_blank" class="read-more-modern">
+                        Pelajari Sampel <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- 9 & 10. CONTACT & SOCIAL MEDIA -->
     <section id="contact" class="contact section-padding">
