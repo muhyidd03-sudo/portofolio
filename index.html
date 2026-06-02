@@ -462,36 +462,99 @@
             transform: translateX(5px);
         }
 
-        /* --- 5. TESTIMONI & LOGO BRAND --- */
+        /* --- DESAIN PREMIUM UNTUK SECTION TESTIMONIALS --- */
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
         }
 
         .testi-card {
-            background-color: var(--bg-light);
-            padding: 40px;
-            border-radius: 16px;
-            border-top: 4px solid var(--secondary);
-            box-shadow: var(--shadow);
+            background-color: #ffffff;
+            padding: 45px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            position: relative; /* Untuk memposisikan dekorasi tanda kutip */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Dekorasi Tanda Kutip Raksasa Reruntuhan (Aksen Estetis) */
+        .quote-icon-bg {
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 8rem;
+            color: rgba(22, 163, 74, 0.03); /* Sangat samar agar tidak mengganggu teks */
+            pointer-events: none;
             transition: var(--transition);
         }
 
-        .testi-card:hover {
-            transform: translateY(-5px);
+        .testi-card:nth-child(2) .quote-icon-bg {
+            color: rgba(180, 83, 9, 0.03); /* Warna emas samar untuk kartu kaligrafi */
         }
 
-        .testi-text {
-            font-style: italic;
-            font-size: 1.1rem;
+        /* Bintang Penilaian */
+        .rating-stars {
+            color: #fbbf24; /* Warna kuning emas benderang */
+            font-size: 0.95rem;
             margin-bottom: 20px;
-            color: #4b5563;
+            display: flex;
+            gap: 4px;
         }
 
-        .testi-card h4 {
+        /* Teks Testimoni */
+        .testi-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #4b5563;
+            font-style: normal; /* Diubah dari italic agar lebih tegas & profesional */
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Tata Letak Identitas Klien di Bawah */
+        .client-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 20px;
+        }
+
+        /* Foto Profil/Avatar Inisial Melingkar */
+        .client-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .avatar-excel {
+            background: linear-gradient(135deg, #16a34a 0%, #10b981 100%); /* Gradasi hijau */
+        }
+
+        .avatar-art {
+            background: linear-gradient(135deg, #b45309 0%, #f59e0b 100%); /* Gradasi emas */
+        }
+
+        .client-info-meta h4 {
+            font-size: 1.1rem;
             color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 2px;
         }
 
         .client-role {
@@ -500,25 +563,77 @@
             font-weight: 500;
         }
 
+        /* --- MICRO-INTERACTION HOVER --- */
+        .testi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            background-color: #ffffff;
+        }
+
+        .testi-card:hover .quote-icon-bg {
+            transform: scale(1.1) translateY(10px);
+        }
+
+        /* --- BAGIAN LOGO BRAND BARU --- */
+        .client-logos-container {
+            text-align: center;
+            border-top: 1px dashed #e5e7eb;
+            padding-top: 50px;
+        }
+
+        .logos-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
         .client-logos {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
         .client-logos span {
+            font-size: 1rem;
             font-weight: 700;
-            letter-spacing: 2px;
             color: #9ca3af;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             transition: var(--transition);
-            cursor: pointer;
         }
 
+        .client-logos span i {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            transition: var(--transition);
+        }
+
+        /* Efek menyala pada logo mitra saat disentuh */
         .client-logos span:hover {
+            color: var(--dark);
+        }
+
+        .client-logos span:hover i {
             color: var(--primary);
+        }
+
+        /* Penyesuaian Responsif untuk HP */
+        @media (max-width: 768px) {
+            .testimonial-grid {
+                gap: 25px;
+            }
+            .testi-card {
+                padding: 35px 30px;
+            }
+            .client-logos {
+                gap: 25px;
+            }
         }
 
         /* --- 6. PORTFOLIO TAMPILAN ELEGAN --- */
@@ -1358,26 +1473,54 @@
 </section>
 
     <!-- 5. TESTIMONI & SOCIAL PROOF -->
-    <section class="testimonials section-padding">
-        <div class="container">
-            <h2 class="section-title">Testimoni Klien</h2>
-            <div class="testimonial-grid">
-                <div class="testi-card">
-                    <p class="testi-text">"Pekerjaan bulanan tim finance kami yang tadinya memakan waktu 3 hari, sekarang selesai dalam 5 menit berkat sistem Macro Excel yang dibuat!"</p>
-                    <h4>- Pak Hermawan</h4>
-                    <span class="client-role">Manajer Operasional Logistik</span>
+<section class="testimonials section-padding">
+    <div class="container">
+        <h2 class="section-title">Testimoni Klien</h2>
+        
+        <div class="testimonial-grid">
+            
+            <div class="testi-card">
+                <div class="quote-icon-bg"><i class="fas fa-quote-right"></i></div>
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <div class="testi-card">
-                    <p class="testi-text">"Desain kaligrafi kustom untuk masjid dan mushola kantor kami hasilnya sangat presisi, rapi, dan sesuai kaidah khat asli. Sangat puas!"</p>
-                    <h4>- Ibu Rahmawati</h4>
-                    <span class="client-role">Ketua Yayasan Seni Bina</span>
+                <p class="testi-text">"Pekerjaan bulanan tim finance kami yang tadinya memakan waktu 3 hari penuh, sekarang selesai dalam hitungan menit berkat sistem Macro Excel yang dibuat! Sangat responsif dan solutif."</p>
+                <div class="client-profile">
+                    <div class="client-avatar avatar-excel">H</div>
+                    <div class="client-info-meta">
+                        <h4>Pak Hermawan</h4>
+                        <span class="client-role">Manajer Operasional Logistik</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="testi-card">
+                <div class="quote-icon-bg"><i class="fas fa-quote-right"></i></div>
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testi-text">"Desain kaligrafi kustom untuk masjid dan mushola kantor kami hasilnya sangat presisi, rapi, dan sesuai kaidah khat asli. Format vektornya sangat memudahkan tim cetak kami."</p>
+                <div class="client-profile">
+                    <div class="client-avatar avatar-art">R</div>
+                    <div class="client-info-meta">
+                        <h4>Ibu Rahmawati</h4>
+                        <span class="client-role">Ketua Yayasan Seni Bina</span>
+                    </div>
+                </div>
+            </div>
+
+        </div> <div class="client-logos-container">
+            <p class="logos-title">Telah Dipercaya Oleh Berbagai Instansi & UMKM</p>
             <div class="client-logos">
-                <span>PT DATA UTAMA</span><span>STUDIO ISLAMI</span><span>UMKM MAJU</span><span>CORP SPREADSHEET</span>
+                <span><i class="fas fa-building"></i> PT DATA UTAMA</span>
+                <span><i class="fas fa-mosque"></i> STUDIO ISLAMI</span>
+                <span><i class="fas fa-store"></i> UMKM MAJU</span>
+                <span><i class="fas fa-file-excel"></i> CORP SPREADSHEET</span>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
 
     <!-- 6. PORTFOLIO / PROYEK -->
     <section id="portfolio" class="portfolio section-padding bg-light">
