@@ -281,45 +281,217 @@
         }
 
         /* --- 3. ABOUT US --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin: 24px 0 10px;
-            color: var(--dark);
-        }
-
-        .about-stats {
+        /* --- DESAIN PREMIUM GEOMETRIC ABOUT SECTION --- */
+        .about-flex-container {
             display: flex;
-            flex-direction: column;
-            gap: 24px;
+            align-items: center;
+            gap: 60px; /* Jarak renggang yang lega antara gambar dan teks */
         }
 
-        .stat-item {
-            background-color: #f0fdf4;
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            border-left: 6px solid var(--primary);
-            box-shadow: var(--shadow);
+        /* --- SISI KIRI: STYLING VISUAL BLOCK --- */
+        .about-visual-block {
+            flex: 1;
+            position: relative;
+        }
+
+        /* Bingkai Kotak Geometris Melayang */
+        .geometric-card-bg {
+            width: 85%;
+            max-width: 380px;
+            height: 420px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+            border-radius: 24px;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        /* Bayangan kotak dekoratif di belakang bingkai utama */
+        .geometric-card-bg::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            bottom: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary); /* Garis luar hijau */
+            border-radius: 24px;
             transition: var(--transition);
         }
 
-        .stat-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-lg);
+        /* Wadah Gambar / Placeholder */
+        .profile-frame-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: #94a3b8;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        .stat-item h4 {
-            font-size: 2.5rem;
+        .profile-frame-placeholder i {
+            font-size: 4rem;
+            color: #cbd5e1;
+        }
+
+        /* Lencana Pengalaman Emas Melayang */
+        .experience-badge-modern {
+            position: absolute;
+            bottom: 30px;
+            right: -30px;
+            background-color: #0f172a; /* Hitam safir pekat */
+            color: #ffffff;
+            padding: 20px 25px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: var(--shadow-lg);
+            border-left: 4px solid var(--secondary); /* Aksen garis emas */
+            transition: var(--transition);
+        }
+
+        .experience-badge-modern h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--secondary); /* Angka berwarna emas */
+            line-height: 1;
+        }
+
+        .experience-badge-modern p {
+            font-size: 0.85rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        /* --- SISI KANAN: STYLING TEXT BLOCK --- */
+        .about-text-block {
+            flex: 1.2;
+        }
+
+        .sub-title-accent {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--primary);
             font-weight: 700;
-            margin-bottom: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .about-main-title {
+            font-size: 2.2rem;
+            color: var(--dark);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+
+        .about-lead-text {
+            font-size: 1.15rem;
+            color: var(--dark);
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .about-body-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        /* Kisi Kotak Statistik / Fitur Kecil di bawah */
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--bg-light);
+            padding: 16px 20px;
+            border-radius: 14px;
+            transition: var(--transition);
+        }
+
+        .stat-icon-wrap {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .excel-color { background-color: #e6f4ea; color: #16a34a; }
+        .art-color { background-color: #fef3c7; color: #b45309; }
+
+        .stat-info h4 {
+            font-size: 0.98rem;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .stat-info p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* --- INTERAKSI HOVER ANIMASI --- */
+        .about-visual-block:hover .geometric-card-bg::before {
+            transform: translate(8px, 8px); /* Garis luar bergeser dinamis */
+        }
+
+        .about-visual-block:hover .experience-badge-modern {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .stat-box:hover {
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        /* --- RESPONSIVITAS LAYAR TABLET & HP --- */
+        @media (max-width: 991px) {
+            .about-flex-container {
+                flex-direction: column; /* Menjadi tumpuk vertikal pada tablet/HP */
+                gap: 50px;
+            }
+            .about-visual-block {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            .geometric-card-bg {
+                width: 290px;
+                height: 330px;
+            }
+            .experience-badge-modern {
+                right: -15px;
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-main-title { font-size: 1.8rem; }
+            .about-stats-grid { grid-template-columns: 1fr; } /* Statistik menjadi 1 baris penuh di HP */
         }
 
         /* --- 4. SERVICES --- */
@@ -1484,24 +1656,57 @@
     </section>
 
     <!-- 3. ABOUT US -->
-    <section id="about" class="about section-padding">
-        <div class="container">
-            <h2 class="section-title">Tentang Kami</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <h3>Presisi Logika & Estetika Seni</h3>
-                    <p>Kami percaya bahwa efisiensi kerja dan keindahan visual dapat berjalan beriringan. Di satu sisi, kami membantu perusahaan menghemat ratusan jam kerja lewat arsitektur formula Excel dan VBA Macro yang mutakhir. Di sisi lain, kami melestarikan warisan budaya luhur melalui pembuatan desain kaligrafi Arab kustom untuk kebutuhan interior, merchandise, maupun aset digital.</p>
-                    <h3>Nilai Perusahaan</h3>
-                    <p>Akurasi Data Tanpa Cela, Keaslian Kaidah Khat Kaligrafi, dan Respons Kilat untuk Kepuasan Klien.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item"><h4>100%</h4><p>Akurasi Rumus & Kaidah Khat</p></div>
-                    <div class="stat-item"><h4>120+</h4><p>Dasbor & Desain Terselesaikan</p></div>
-                    <div class="stat-item"><h4>24/7</h4><p>Dukungan Sistem & Revisi</p></div>
+<section id="about" class="about section-padding">
+    <div class="container">
+        <div class="about-flex-container">
+            
+            <div class="about-visual-block">
+                <div class="geometric-card-bg">
+                    <div class="profile-frame-placeholder">
+                        <i class="fas fa-user-tie"></i>
+                        <span>DATA & ART</span>
+                    </div>
+                    
+                    <div class="experience-badge-modern">
+                        <h3>5+</h3>
+                        <p>Tahun<br>Berkarya</p>
+                    </div>
                 </div>
             </div>
+
+            <div class="about-text-block">
+                <span class="sub-title-accent">Mengenal Lebih Dekat</span>
+                <h2 class="about-main-title">Menjembatani Presisi Data dengan Keindahan Estetika</h2>
+                
+                <p class="about-lead-text">
+                    Kami hadir di Bangkalan untuk memberikan solusi terintegrasi bagi Anda yang membutuhkan akurasi sistem manajemen data sekaligus keanggunan visual seni religius. 
+                </p>
+                <p class="about-body-text">
+                    Di satu sisi, kami merancang arsitektur formula dan otomatisasi *Excel VBA Macro* untuk memangkas beban kerja korporat secara logis. Di sisi lain, kami menuangkan jiwa ke dalam guratan *Kaligrafi Arab Digital* format vektor premium yang taat pada kaidah khat klasik untuk kebutuhan arsitektur maupun komersial.
+                </p>
+
+                <div class="about-stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-icon-wrap excel-color"><i class="fas fa-bolt"></i></div>
+                        <div class="stat-info">
+                            <h4>99% Otomatis</h4>
+                            <p>Eliminasi error input data</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <div class="stat-icon-wrap art-color"><i class="fas fa-bezier-curve"></i></div>
+                        <div class="stat-info">
+                            <h4>High-Res Vektor</h4>
+                            <p>Desain kaligrafi tanpa pecah</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- 4. SERVICES -->
     <section id="services" class="services section-padding bg-light">
