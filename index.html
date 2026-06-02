@@ -206,350 +206,350 @@
         }
 
         /* --- DESAIN PREMIUM LIGHT HERO SECTION (SERASI DENGAN SECTION DI BAWAH) --- */
-.hero-modern {
-    background-color: #ffffff; /* Mengubah latar belakang menjadi putih bersih serasi dengan section about */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 100px 0 60px 0;
-}
+        .hero-modern {
+            background-color: #ffffff; /* Mengubah latar belakang menjadi putih bersih serasi dengan section about */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 60px 0;
+        }
 
-/* Tata Letak Grid Sisi Kiri & Kanan */
-.hero-split-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-}
+        /* Tata Letak Grid Sisi Kiri & Kanan */
+        .hero-split-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
 
-/* --- DESAIN PREMIUM FUTURISTIC HERO SECTION --- */
-.hero-modern {
-    background-color: #0f172a; /* Latar belakang gelap safir/navy pekat agar efek cahaya menyala */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 100px 0 60px 0;
-}
+        /* --- DESAIN PREMIUM FUTURISTIC HERO SECTION --- */
+        .hero-modern {
+            background-color: #0f172a; /* Latar belakang gelap safir/navy pekat agar efek cahaya menyala */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 60px 0;
+        }
 
-/* Tata Letak Grid Sisi Kiri & Kanan */
-.hero-split-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-}
+        /* Tata Letak Grid Sisi Kiri & Kanan */
+        .hero-split-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
 
-/* --- ORNAMEN CAHAYA LATAR BELAKANG (GLOWING ORBS) --- */
-.hero-glowing-orbs {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 1;
-}
+        /* --- ORNAMEN CAHAYA LATAR BELAKANG (GLOWING ORBS) --- */
+        .hero-glowing-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-.orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(140px); /* Efek blur super besar melunakkan cahaya */
-    opacity: 0.15;
-}
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px); /* Efek blur super besar melunakkan cahaya */
+            opacity: 0.15;
+        }
 
-.orb-green {
-    width: 400px;
-    height: 400px;
-    background-color: #16a34a; /* Cahaya hijau di sisi kiri atas */
-    top: -10%; left: -5%;
-}
+        .orb-green {
+            width: 400px;
+            height: 400px;
+            background-color: #16a34a; /* Cahaya hijau di sisi kiri atas */
+            top: -10%; left: -5%;
+        }
 
-.orb-gold {
-    width: 500px;
-    height: 500px;
-    background-color: #b45309; /* Cahaya emas di sisi kanan bawah */
-    bottom: -10%; right: -5%;
-}
+        .orb-gold {
+            width: 500px;
+            height: 500px;
+            background-color: #b45309; /* Cahaya emas di sisi kanan bawah */
+            bottom: -10%; right: -5%;
+        }
 
-/* --- STYLING TEKS SISI KIRI --- */
-.hero-welcome-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 8px 16px;
-    border-radius: 30px;
-    margin-bottom: 25px;
-}
+        /* --- STYLING TEKS SISI KIRI --- */
+        .hero-welcome-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+        }
 
-/* Titik berkedip menyala hijau di lencana */
-.pulse-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #10b981;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #10b981;
-    animation: badgePulse 2s infinite;
-}
+        /* Titik berkedip menyala hijau di lencana */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: badgePulse 2s infinite;
+        }
 
-@keyframes badgePulse {
-    0% { transform: scale(0.9); opacity: 0.6; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(0.9); opacity: 0.6; }
-}
+        @keyframes badgePulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
 
-.hero-welcome-badge p {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #cbd5e1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0;
-}
+        .hero-welcome-badge p {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
 
-.hero-main-title {
-    font-size: 3.5rem;
-    color: #ffffff;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 25px;
-    letter-spacing: -0.5px;
-}
+        .hero-main-title {
+            font-size: 3.5rem;
+            color: #ffffff;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
 
-/* Gradasi warna teks khusus untuk kata "Seni Keindahan" */
-.text-gradient-art {
-    background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        /* Gradasi warna teks khusus untuk kata "Seni Keindahan" */
+        .text-gradient-art {
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.hero-sub-text {
-    font-size: 1.15rem;
-    color: #94a3b8;
-    line-height: 1.7;
-    margin-bottom: 40px;
-    max-width: 620px;
-}
+        .hero-sub-text {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 620px;
+        }
 
-/* --- TOMBOL AKSI GANDA (DUAL CTA) --- */
-.hero-action-buttons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+        /* --- TOMBOL AKSI GANDA (DUAL CTA) --- */
+        .hero-action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.btn-hero-primary {
-    background-color: #16a34a; /* Hijau utama */
-    color: #ffffff;
-    padding: 16px 32px;
-    border-radius: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.05rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 10px 25px rgba(22, 163, 74, 0.25);
-    transition: all 0.3s ease;
-}
+        .btn-hero-primary {
+            background-color: #16a34a; /* Hijau utama */
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.25);
+            transition: all 0.3s ease;
+        }
 
-.btn-hero-primary:hover {
-    background-color: #15803d;
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(22, 163, 74, 0.35);
-}
+        .btn-hero-primary:hover {
+            background-color: #15803d;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(22, 163, 74, 0.35);
+        }
 
-.btn-hero-secondary {
-    background-color: rgba(255, 255, 255, 0.04);
-    color: #ffffff;
-    padding: 16px 32px;
-    border-radius: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.05rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
+        .btn-hero-secondary {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
 
-.btn-hero-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
-}
+        .btn-hero-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
 
-.btn-hero-secondary i {
-    transition: transform 0.3s ease;
-}
+        .btn-hero-secondary i {
+            transition: transform 0.3s ease;
+        }
 
-.btn-hero-secondary:hover i {
-    transform: translateX(5px);
-}
+        .btn-hero-secondary:hover i {
+            transform: translateX(5px);
+        }
 
-/* --- SISI KANAN: KOMPONEN KARTU TERAPUNG (FLOATING VISUALS) --- */
-.hero-visual-content {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
+        /* --- SISI KANAN: KOMPONEN KARTU TERAPUNG (FLOATING VISUALS) --- */
+        .hero-visual-content {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
 
-.hero-card-stack {
-    position: relative;
-    width: 320px;
-    height: 320px;
-}
+        .hero-card-stack {
+            position: relative;
+            width: 320px;
+            height: 320px;
+        }
 
-.floating-hero-card {
-    position: absolute;
-    background: rgba(30, 41, 59, 0.7); /* Efek kaca gelap transparan */
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    width: 240px;
-    transition: all 0.3s ease;
-}
+        .floating-hero-card {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.7); /* Efek kaca gelap transparan */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            width: 240px;
+            transition: all 0.3s ease;
+        }
 
-/* Kartu Data (Excel) Kiri Atas */
-.card-data-preview {
-    top: 10px; left: -20px;
-    animation: floatAnim1 4s ease-in-out infinite;
-    z-index: 3;
-}
+        /* Kartu Data (Excel) Kiri Atas */
+        .card-data-preview {
+            top: 10px; left: -20px;
+            animation: floatAnim1 4s ease-in-out infinite;
+            z-index: 3;
+        }
 
-/* Kartu Seni (Kaligrafi) Kanan Bawah */
-.card-art-preview {
-    bottom: 20px; right: -20px;
-    animation: floatAnim2 4s ease-in-out infinite;
-    animation-delay: 2s; /* Jeda waktu animasi agar bergantian membalun */
-    z-index: 4;
-}
+        /* Kartu Seni (Kaligrafi) Kanan Bawah */
+        .card-art-preview {
+            bottom: 20px; right: -20px;
+            animation: floatAnim2 4s ease-in-out infinite;
+            animation-delay: 2s; /* Jeda waktu animasi agar bergantian membalun */
+            z-index: 4;
+        }
 
-/* Lingkaran Grafis Abstrak di Belakang Kartu */
-.hero-graphic-sphere {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    background: linear-gradient(135deg, rgba(22, 163, 74, 0.1) 0%, rgba(180, 83, 9, 0.1) 100%);
-    border-radius: 50%;
-    top: 30px; left: 30px;
-    z-index: 2;
-    border: 1px dashed rgba(255, 255, 255, 0.1);
-    animation: spinSlow 20s linear infinite;
-}
+        /* Lingkaran Grafis Abstrak di Belakang Kartu */
+        .hero-graphic-sphere {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.1) 0%, rgba(180, 83, 9, 0.1) 100%);
+            border-radius: 50%;
+            top: 30px; left: 30px;
+            z-index: 2;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            animation: spinSlow 20s linear infinite;
+        }
 
-.card-mini-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 8px;
-}
+        .card-mini-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 8px;
+        }
 
-.line-skeleton {
-    height: 6px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    margin-bottom: 8px;
-}
-.line-skeleton.short { width: 40%; }
-.line-skeleton.long { width: 85%; }
+        .line-skeleton {
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .line-skeleton.short { width: 40%; }
+        .line-skeleton.long { width: 85%; }
 
-.arabic-preview-text {
-    font-size: 1.4rem;
-    color: #fbbf24;
-    display: block;
-    text-align: center;
-    font-weight: 500;
-    padding: 5px 0;
-}
+        .arabic-preview-text {
+            font-size: 1.4rem;
+            color: #fbbf24;
+            display: block;
+            text-align: center;
+            font-weight: 500;
+            padding: 5px 0;
+        }
 
-/* --- LOGIKA ANIMASI BALUN AMBANG --- */
-@keyframes floatAnim1 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
+        /* --- LOGIKA ANIMASI BALUN AMBANG --- */
+        @keyframes floatAnim1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
 
-@keyframes floatAnim2 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
+        @keyframes floatAnim2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
 
-@keyframes spinSlow {
-    100% { transform: rotate(360deg); }
-}
+        @keyframes spinSlow {
+            100% { transform: rotate(360deg); }
+        }
 
-/* --- INDIKATOR SCROLL DI PALING BAWAH HERO --- */
-.hero-scroll-indicator {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-    pointer-events: none;
-}
+        /* --- INDIKATOR SCROLL DI PALING BAWAH HERO --- */
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            pointer-events: none;
+        }
 
-.mouse-icon {
-    width: 26px;
-    height: 42px;
-    border: 2px solid #64748b;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    padding-top: 8px;
-}
+        .mouse-icon {
+            width: 26px;
+            height: 42px;
+            border: 2px solid #64748b;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
 
-.wheel-dot {
-    width: 4px;
-    height: 8px;
-    background-color: #16a34a;
-    border-radius: 4px;
-    animation: scrollDrop 1.6s infinite;
-}
+        .wheel-dot {
+            width: 4px;
+            height: 8px;
+            background-color: #16a34a;
+            border-radius: 4px;
+            animation: scrollDrop 1.6s infinite;
+        }
 
-@keyframes scrollDrop {
-    0% { opacity: 0; transform: translateY(-4px); }
-    30% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(12px); }
-}
+        @keyframes scrollDrop {
+            0% { opacity: 0; transform: translateY(-4px); }
+            30% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(12px); }
+        }
 
-/* --- RESPONSIVITAS LAYAR UNTUK HANDPHONE --- */
-@media (max-width: 991px) {
-    .hero-split-grid {
-        grid-template-columns: 1fr; /* Tumpuk ke bawah di layar kecil */
-        text-align: center;
-        gap: 60px;
-    }
-    .hero-sub-text {
-        margin-left: auto; margin-right: auto;
-    }
-    .hero-action-buttons {
-        justify-content: center;
-    }
-    .hero-main-title {
-        font-size: 2.6rem;
-    }
-    .hero-visual-content {
-        order: -1; /* Pindahkan visual ke bagian atas teks pada versi mobile */
-        margin-bottom: 20px;
-    }
-}
+        /* --- RESPONSIVITAS LAYAR UNTUK HANDPHONE --- */
+        @media (max-width: 991px) {
+            .hero-split-grid {
+                grid-template-columns: 1fr; /* Tumpuk ke bawah di layar kecil */
+                text-align: center;
+                gap: 60px;
+            }
+            .hero-sub-text {
+                margin-left: auto; margin-right: auto;
+            }
+            .hero-action-buttons {
+                justify-content: center;
+            }
+            .hero-main-title {
+                font-size: 2.6rem;
+            }
+            .hero-visual-content {
+                order: -1; /* Pindahkan visual ke bagian atas teks pada versi mobile */
+                margin-bottom: 20px;
+            }
+        }
 
         /* --- 3. ABOUT US --- */
         /* --- DESAIN PREMIUM GEOMETRIC ABOUT SECTION --- */
@@ -1879,8 +1879,37 @@
             .btn { width: 100%; }
             .hero-cta { flex-direction: column; gap: 12px; width: 100%; }
         }
-    </style>
-</head>
+
+        /* --- Tambahan CSS untuk Animasi JS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navbar.scrolled {
+            padding: 12px 5%;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-links li a.active-link {
+            color: var(--primary) !important;
+            background-color: rgba(22, 163, 74, 0.05);
+        }
+
+        /* Efek transisi smooth untuk tilt */
+        .card, .portfolio-item {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+            </style>
+    </head>
 <body>
 
     <!-- 1. HEADER & NAVIGASI -->
@@ -1943,8 +1972,8 @@
             </div>
             
             <h1 class="hero-main-title">
-                Transformasikan Data, <br>
-                Abadikan <span class="text-gradient-art">Seni Keindahan</span>
+            Transformasikan Data, <br>
+            <span class="text-gradient-art" id="typing-text"></span>
             </h1>
             
             <p class="hero-sub-text">
@@ -2071,8 +2100,8 @@
                     <div class="card-icon-modern"><i class="fas fa-table"></i></div>
                 </div>
                 <div class="card-body-art">
-                    <h3>Excel VBA & Otomasi</h3>
-                    <p>Pembuatan sistem Macro kustom, otomatisasi pembersihan data, eliminasi human-error, serta perancangan formula kompleks untuk memangkas waktu kerja bulanan Anda menjadi hitungan menit.</p>
+                    <h3>Excel Otomasi</h3>
+                    <p>Pembuatan sistem Profesional, otomatisasi pembersihan data, eliminasi human-error, serta perancangan formula kompleks untuk memangkas waktu kerja bulanan Anda menjadi hitungan menit.</p>
                 </div>
                 <div class="card-footer-art">
                     <span>Mulai Optimasi <i class="fas fa-arrow-right"></i></span>
@@ -2129,7 +2158,7 @@
                 <div class="client-profile">
                     <div class="client-avatar avatar-excel">H</div>
                     <div class="client-info-meta">
-                        <h4>Pak Hermawan</h4>
+                        <h4>Abd. Muniri</h4>
                         <span class="client-role">Manajer Operasional Logistik</span>
                     </div>
                 </div>
@@ -2174,7 +2203,7 @@
         
         <div class="port-info">
             <h4>Sistem Inventaris Otomatis</h4>
-            <p>Studi Kasus: Menggunakan Excel VBA untuk otomatisasi stok barang gudang ritel dengan notifikasi otomatis.</p>
+            <p>Studi Kasus: Menggunakan Rumus Excel untuk otomatisasi inventaris barang gudang ritel dengan notifikasi otomatis.</p>
         </div>
     </div>
 
@@ -2253,8 +2282,8 @@
                     <span class="blog-date"><i class="far fa-calendar-alt"></i> 24 Mei 2026</span>
                 </div>
                 <div class="blog-body">
-                    <h3>Panduan Memulai Excel VBA Macro untuk Pemula</h3>
-                    <p>Pelajari langkah dasar menyusun kode Macro pertama Anda untuk mengotomatiskan rekapitulasi data harian secara instan, aman, dan bebas error.</p>
+                    <h3>Panduan Belajar Rumus Excel untuk Pemula</h3>
+                    <p>Pelajari langkah dasar rumus Excel untuk mengotomatiskan rekapitulasi data harian secara instan, aman, dan bebas error.</p>
                 </div>
                 <div class="blog-footer">
                     <a href="https://wa.me/6281234567890?text=Halo%20Admin%20DATA%26ART,%20saya%20tertarik%20tanya-tanya%20mengenai%20layanan%20Otomasi%20Excel%20VBA." target="_blank" class="read-more-modern">
@@ -2422,7 +2451,7 @@
     <!-- Garis Batas Bawah & Hak Cipta -->
     <div class="footer-bottom">
         <div class="container footer-bottom-flex">
-            <p>&copy; 2026 DATA&ART. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p>&copy; 2026 DATA&ART. All rights reserved</p>
             <p class="footer-credit">Handcrafted with <i class="fas fa-heart" style="color: #ef4444;"></i> in Bangkalan</p>
         </div>
     </div>
@@ -2455,6 +2484,138 @@
             });
         });
     </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. ANIMASI KETIK (TYPEWRITER EFFECT) HERO
+    // ==========================================
+    const words = ["Abadikan Seni Keindahan", "Otomatisasikan Bisnis Anda", "Wujudkan Presisi Digital"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById("typing-text");
+
+    function typeEffect() {
+        if (!typingElement) return;
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000; // Berhenti sebentar saat kata selesai diketik
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeSpeed = 500; // Jeda sebelum mulai mengetik kata baru
+        }
+
+        setTimeout(typeEffect, typeSpeed);
+    }
+    typeEffect();
+
+
+    // ==========================================
+    // 2. STICKY NAVBAR & ACTIVE LINK ON SCROLL
+    // ==========================================
+    const navbar = document.querySelector(".navbar");
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-links li a");
+
+    window.addEventListener("scroll", () => {
+        // Efek mengecilkan navbar saat scroll
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+
+        // Auto update active menu link berdasarkan section di layar
+        let currentSectionId = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (window.scrollY >= sectionTop) {
+                currentSectionId = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active-link");
+            if (link.getAttribute("href") === `#${currentSectionId}`) {
+                link.classList.add("active-link");
+            }
+        });
+    });
+
+
+    // ==========================================
+    // 3. SCROLL REVEAL ANIMATION (FADE IN UP)
+    // ==========================================
+    // Tambahkan class 'reveal' ke elemen-elemen yang ingin dianimasikan saat scroll
+    const elementsToAnimate = [
+        ".about-visual-block", ".about-text-block", 
+        ".card", ".testi-card", 
+        ".portfolio-item", ".blog-card", 
+        ".contact-info", ".contact-form"
+    ];
+
+    elementsToAnimate.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => el.classList.add("reveal"));
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                // Hapus observer jika animasi hanya ingin dijalankan sekali saat scroll down
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+
+    // ==========================================
+    // 4. MOUSE MOVE 3D TILT EFFECT (MICRO-INTERACTION)
+    // ==========================================
+    const tiltElements = document.querySelectorAll(".card, .portfolio-item, .blog-card");
+
+    tiltElements.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardWidth = cardRect.width;
+            const cardHeight = cardRect.height;
+            
+            // Mencari titik koordinat kursor relatif terhadap kartu (tengah = 0)
+            const mouseX = e.clientX - cardRect.left - cardWidth / 2;
+            const mouseY = e.clientY - cardRect.top - cardHeight / 2;
+            
+            // Mengubah sensitivitas kemiringan (makin besar pembagi, makin halus)
+            const rotateX = -(mouseY / cardHeight) * 15; 
+            const rotateY = (mouseX / cardWidth) * 15;
+
+            card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            // Kembalikan ke posisi semula saat kursor keluar kartu
+            card.style.transform = `translateY(0) rotateX(0) rotateY(0)`;
+        });
+    });
+
+});
+</script>
 
 </body>
 </html>
