@@ -7,6 +7,8 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- ========================================== -->
     <!--          BAGIAN CSS INTERNAL MODERN        -->
@@ -223,7 +225,7 @@
         .headline {
             font-size: 3.5rem;
             line-height: 1.15;
-            color: var(--dark);
+            color: var(--primary);
             margin-bottom: 24px;
             font-weight: 700;
         }
@@ -545,43 +547,100 @@
             gap: 60px;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        /* --- DESAIN BARU UTK CONTACT METHOD --- */
+.contact-method-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Jarak antar kartu info */
+    margin-bottom: 10px;
+}
 
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
 
-        .contact-method {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
+/* Efek saat baris kontak disentuh kursor */
+.contact-method:hover {
+    background-color: #ffffff;
+    transform: translateX(8px); /* Sedikit bergeser ke kanan dengan halus */
+    box-shadow: var(--shadow);
+    border-color: rgba(22, 163, 74, 0.15);
+}
+
+/* Desain lingkaran tempat ikon */
+.method-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff;
+    color: var(--primary); /* Menggunakan warna hijau Excel utama */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: var(--transition);
+}
+
+.contact-method:hover .method-icon {
+    background-color: var(--primary);
+    color: #ffffff; /* Warna ikon berubah putih saat di-hover */
+}
+
+/* Penataan teks label dan isi */
+.method-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.method-text span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.method-text p {
+    font-size: 1.05rem;
+    color: var(--dark);
+    font-weight: 500;
+    margin: 0;
+}
 
         .social-links {
-            margin-top: 35px;
-            display: flex;
-            gap: 15px;
-        }
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+}
 
         .social-links a {
-            padding: 10px 20px;
-            border-radius: 8px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; /* Membuat bentuk lingkaran sempurna */
             background-color: var(--bg-light);
             color: var(--primary);
+            font-size: 1.3rem; /* Mengatur ukuran ikon */
             text-decoration: none;
-            font-weight: 600;
             transition: var(--transition);
+            box-shadow: var(--shadow);
         }
 
         .social-links a:hover {
             background-color: var(--primary);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotate(360deg); /* Efek berputar estetik saat di-hover */
         }
 
         .contact-form {
@@ -919,18 +978,55 @@
             <h2 class="section-title">Hubungi Kami</h2>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Diskusikan Kebutuhan Anda</h3>
-                    <p class="contact-method">📍 Kec. Bangkalan, Madura, Jawa Timur</p>
-                    <p class="contact-method">📞 +62 812-3456-7890</p>
-                    <p class="contact-method">✉️ kontak@data-art-portfolio.com</p>
-                    <p class="contact-method">🕒 Jam Kerja: 08.00 - 16.00 WIB</p>
-                    
-                    <div class="social-links">
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">GitHub</a>
-                    </div>
-                </div>
+    <h3>Diskusikan Kebutuhan Anda</h3>
+    
+    <div class="contact-method-container">
+        <div class="contact-method">
+            <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="method-text">
+                <span>Lokasi</span>
+                <p>Kec. Bangkalan, Madura, Jawa Timur</p>
+            </div>
+        </div>
+
+        <div class="contact-method">
+            <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="method-text">
+                <span>Telepon / WhatsApp</span>
+                <p>+62 812-3456-7890</p>
+            </div>
+        </div>
+
+        <div class="contact-method">
+            <div class="method-icon"><i class="fas fa-envelope"></i></div>
+            <div class="method-text">
+                <span>Email Resmi</span>
+                <p>kontak@data-art-portfolio.com</p>
+            </div>
+        </div>
+
+        <div class="contact-method">
+            <div class="method-icon"><i class="fas fa-clock"></i></div>
+            <div class="method-text">
+                <span>Jam Kerja</span>
+                <p>08.00 - 16.00 WIB</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bagian social-links tetap di bawahnya -->
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/username-anda" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/username-anda" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/username-anda" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</div>
                 <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan Anda berhasil terkirim! Kami akan menghubungi Anda segera.');">
                     <input type="text" placeholder="Nama Lengkap / Instansi" required>
                     <input type="email" placeholder="Alamat Email" required>
