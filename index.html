@@ -571,34 +571,115 @@
             color: var(--dark);
         }
 
-        /* --- 7. FAQ --- */
-        .faq-list {
-            max-width: 850px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .faq-item {
-            background: var(--bg-light);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.03);
+        .port-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover; /* Memotong gambar secara proporsional agar pas di kotak */
+            display: block;
             transition: var(--transition);
         }
 
-        .faq-item:hover {
-            background: #ffffff;
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
+        .portfolio-item:hover .port-img {
+            transform: scale(1.05); /* Efek gambar sedikit membesar saat kursor mendekat */
         }
 
-        .faq-item h4 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
+        /* --- DESAIN PREMIUM UNTUK SECTION FAQ ACORDION --- */
+.faq-list {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Jarak antar kartu faq */
+}
+
+.faq-item {
+    background-color: var(--bg-light);
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tombol Pertanyaan */
+.faq-question {
+    width: 100%;
+    padding: 22px 28px;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: left;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+/* Lingkaran Tombol Plus (+) */
+.faq-toggle-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    color: var(--text-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+/* --- INTERAKSI HOVER --- */
+.faq-item:hover {
+    background-color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* --- KONDISI AKTIF (SAAT FAQ TERBUKA) --- */
+.faq-item.active {
+    background-color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.faq-item.active .faq-question {
+    color: var(--primary);
+}
+
+.faq-item.active .faq-toggle-icon {
+    background-color: var(--primary);
+    color: #ffffff;
+    transform: rotate(135deg); /* Mengubah ikon + menjadi ikon x/close dengan berputar */
+}
+
+/* Wadah Animasi Jawaban (Slide Terbuka secara Smooth) */
+.faq-answer {
+    max-height: 0; /* Awalnya tertutup */
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-content {
+    padding: 0 28px 24px 65px; /* Memberi ruang di sebelah kiri sejajar teks atas */
+    color: #4b5563;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    border-top: 1px solid rgba(0, 0, 0, 0.02);
+    padding-top: 15px;
+}
+
+.faq-answer-content strong {
+    color: var(--dark);
+}
 
         /* --- 8. BLOG EXTRA --- */
         .blog-card {
@@ -1050,40 +1131,77 @@
         <div class="container">
             <h2 class="section-title">Portofolio Pilihan</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="port-img-placeholder">📊 Automated Inventory System Excel</div>
-                    <div class="port-info">
-                        <h4>Sistem Inventaris Otomatis</h4>
-                        <p>Studi Kasus: Menggunakan Excel VBA untuk otomatisasi stok barang gudang ritel dengan notifikasi otomatis.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="port-img-placeholder" class="font-arabic">✒️ Desain Kustom Khat Tsuluts</div>
-                    <div class="port-info">
-                        <h4>Koleksi Kaligrafi Masjid Agung</h4>
-                        <p>Karya seni vektor resolusi tinggi siap cetak berukuran besar tanpa pecah sedikit pun.</p>
-                    </div>
-                </div>
-            </div>
+    
+    <div class="portfolio-item">
+        <img src="dashboard-excel.jpeg" alt="Sistem Inventaris Otomatis Excel" class="port-img">
+        
+        <div class="port-info">
+            <h4>Sistem Inventaris Otomatis</h4>
+            <p>Studi Kasus: Menggunakan Excel VBA untuk otomatisasi stok barang gudang ritel dengan notifikasi otomatis.</p>
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <img src="kaligrafi.jpeg" alt="Kaligrafi Khat Tsuluts" class="port-img">
+        
+        <div class="port-info">
+            <h4>Koleksi Kaligrafi Masjid Agung</h4>
+            <p>Karya seni vektor resolusi tinggi siap cetak berukuran besar tanpa pecah sedikit pun.</p>
+        </div>
+    </div>
+
+</div>
         </div>
     </section>
 
     <!-- 7. FAQ -->
     <section id="faq" class="faq section-padding">
-        <div class="container">
-            <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h4>Apakah sistem Excel Macro aman dari virus/corrupt?</h4>
-                    <p>Sangat aman. Kami membuat kode VBA dengan struktur yang bersih, efisien, dan memberikan panduan lengkap cara mengaktifkan macro secara aman di laptop Anda.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Bisa memesan kaligrafi Arab dalam format apa saja?</h4>
-                    <p>Kami menyediakan format vektor lengkap (AI, EPS, PDF, SVG) sehingga Anda bebas mencetaknya dalam ukuran pakaian, kanvas besar, hingga ukiran kayu.</p>
+    <div class="container">
+        <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+        <div class="faq-list">
+            
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><i class="fas fa-database" style="color: var(--primary); margin-right: 10px;"></i> Apakah sistem Excel Macro aman dari virus atau file corrupt?</span>
+                    <span class="faq-toggle-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Sangat aman. Kami membuat kode VBA dengan struktur yang bersih, efisien, dan tanpa dependensi eksternal yang berbahaya. Kami juga memberikan panduan video/tertulis singkat tentang cara mengaktifkan macro secara aman di laptop atau komputer kantor Anda.</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><i class="fas fa-paint-brush" style="color: var(--secondary); margin-right: 10px;"></i> Bisa memesan kaligrafi Arab dalam format apa saja?</span>
+                    <span class="faq-toggle-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Kami menyediakan format master vektor terlengkap seperti <strong>AI, EPS, SVG, serta PDF/PNG resolusi tinggi (300 DPI)</strong>. Dengan format ini, karya seni kaligrafi bebas dicetak di media apa pun—mulai dari kaos, kanvas besar, hingga diaplikasikan untuk ukiran kayu dan laser-cutting dinding masjid tanpa pecah.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><i class="fas fa-history" style="color: #2563eb; margin-right: 10px;"></i> Apakah ada garansi jika rumus Excel mengalami error di kemudian hari?</span>
+                    <span class="faq-toggle-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Tentu saja. Kami memberikan garansi dukungan penuh selama 30 hari setelah proyek selesai untuk memastikan sistem berjalan lancar. Jika ada perubahan struktur data internal kantor Anda di masa depan, Anda juga bisa mengambil layanan pemeliharaan berkala dari kami.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- 8. BLOG / ARTIKEL -->
     <section id="blog" class="blog section-padding bg-light">
@@ -1123,7 +1241,7 @@
             <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="method-text">
                 <span>Lokasi</span>
-                <p>Kec. Bangkalan, Madura, Jawa Timur</p>
+                <p>Des. Mandung, Kec. Kokop, Kab. Bangkalan</p>
             </div>
         </div>
 
@@ -1131,7 +1249,7 @@
             <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
             <div class="method-text">
                 <span>Telepon / WhatsApp</span>
-                <p>+62 812-3456-7890</p>
+                <p>+62 822-3103-2950</p>
             </div>
         </div>
 
@@ -1139,7 +1257,7 @@
             <div class="method-icon"><i class="fas fa-envelope"></i></div>
             <div class="method-text">
                 <span>Email Resmi</span>
-                <p>kontak@data-art-portfolio.com</p>
+                <p>muhyidd03@gmail.com</p>
             </div>
         </div>
 
@@ -1186,6 +1304,34 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Script Tambahan khusus untuk Interaksi FAQ Acordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Menutup FAQ lain yang sedang terbuka (Sistem Single-Open)
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle class active pada item yang diklik
+                faqItem.classList.toggle('active');
+
+                // Mengatur tinggi maksimal secara dinamis untuk efek transisi mulus
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
